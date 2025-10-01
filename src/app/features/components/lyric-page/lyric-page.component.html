@@ -1,1 +1,32 @@
-<p>lyric-page works!</p>
+<section>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="lines">
+    @for (ctrl of lines.controls; let i = $index; track i) {
+      <div [formGroupName]="i" class="line">
+        <input type="number" formControlName="lineNumber" readonly />
+
+        <!-- Usamos el componente hijo; sincronizamos con el form control -->
+        <app-generic-line
+          [lineNumber]="ctrl.controls.lineNumber.value"
+          [content]="ctrl.controls.content.value"
+          (contentChange)="onContentChange(i, $event)"
+        ></app-generic-line>
+
+        <button type="button" (click)="removeLine(i)">Remove</button>
+
+        <div class="error" *ngIf="ctrl.controls.content.touched && ctrl.controls.content.invalid">
+          <small *ngIf="ctrl.controls.content.hasError('required')">Content is required.</small>
+          <small *ngIf="ctrl.controls.content.hasError('minlength')">Too short.</small>
+        </div>
+      </div>
+    } @empty {
+      <p>No lines yet</p>
+    }
+  </div>
+
+  <div class="actions">
+    <button type="button" (click)="addLine()">Add line</button>
+    <button type="submit" [disabled]="form.invalid">Save</button>
+  </div>
+</form>
+</section>

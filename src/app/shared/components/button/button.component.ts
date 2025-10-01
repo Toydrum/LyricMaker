@@ -8,5 +8,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() disabled = false;
+  @Input() sign = "";
   @Output() clicked = new EventEmitter<Event>();
+
+  addLine() {
+    this.clicked.emit(new Event('add-line'));
+  }
 }

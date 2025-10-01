@@ -1,1 +1,1 @@
-<p>generic-line works!</p>
+<input type="text" [value]="content" (input)="content=$event.target.value; contentChange.emit(content)">
