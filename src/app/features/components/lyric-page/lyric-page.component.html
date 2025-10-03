@@ -30,3 +30,28 @@
   </div>
 </form>
 </section>
+
+<!-- Resultado del análisis de sílabas -->
+<section *ngIf="analysis?.length">
+  <h3>Resultado</h3>
+  @for (line of analysis; let i = $index; track i) {
+    <div class="line-result">
+      <h4>Línea {{ i + 1 }} <small>(Total sílabas: {{ line.total }})</small></h4>
+      <div class="words">
+        @for (w of line.words; let wi = $index; track wi) {
+          <div class="word">
+            <div class="word-text">{{ w.text }}</div>
+            <div class="syllables">
+              @for (s of w.syllables; let si = $index; track si) {
+                <span class="syllable-box">{{ s }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+  @empty {
+    <p>No hay análisis disponible.</p>
+  }
+</section>

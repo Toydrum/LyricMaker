@@ -1,0 +1,46 @@
+/* Acciones del formulario */
+.actions {
+	display: flex;
+	gap: .5rem;
+}
+
+/* ===== Resultado de análisis ===== */
+.line-result {
+	margin-top: 1rem;
+	padding: .75rem;
+	border: 1px solid #e5e7eb;
+	border-radius: .5rem;
+	background: #fafafa;
+}
+
+.words {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .75rem 1rem;
+}
+
+.word {
+	display: flex;
+	flex-direction: column;
+	gap: .25rem;
+}
+
+.word-text {
+	font-weight: 600;
+}
+
+.syllables {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .25rem;
+}
+
+.syllable-box {
+	display: inline-block;
+	padding: .2rem .4rem;
+	border: 1px solid #d1d5db;
+	border-radius: .25rem;
+	background: white;
+	font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	font-size: .85rem;
+}
