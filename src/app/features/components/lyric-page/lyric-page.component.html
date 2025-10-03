@@ -36,7 +36,15 @@
   <h3>Resultado</h3>
   @for (line of analysis; let i = $index; track i) {
     <div class="line-result">
-      <h4>Línea {{ i + 1 }} <small>(Total sílabas: {{ line.total }})</small></h4>
+      <h4 class="line-header">
+        <span>Línea {{ i + 1 }} <small>(Total sílabas: {{ line.total }})</small></span>
+        <button type="button" class="icon-btn" (click)="removeAnalysisLine(i)" aria-label="Eliminar línea">
+          <!-- Simple X icon (SVG) -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </h4>
       <div class="words">
         @for (w of line.words; let wi = $index; track wi) {
           <div class="word">

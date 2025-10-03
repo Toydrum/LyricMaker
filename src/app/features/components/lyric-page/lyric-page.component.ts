@@ -171,4 +171,10 @@ export class LyricPageComponent {
 
     return mapped;
   }
+
+  // Eliminar una línea del resultado de análisis por índice
+  removeAnalysisLine(index: number) {
+    if (!Array.isArray(this.analysis)) return;
+    this.analysis = this.analysis.filter((_, i) => i !== index);
+  }
 }

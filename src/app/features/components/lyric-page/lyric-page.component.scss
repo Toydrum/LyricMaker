@@ -13,6 +13,30 @@
 	background: #fafafa;
 }
 
+.line-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: .5rem;
+}
+
+.icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	border: 1px solid #e5e7eb;
+	background: white;
+	color: #ef4444;
+	cursor: pointer;
+}
+
+.icon-btn:hover {
+	background: #fee2e2;
+}
+
 .words {
 	display: flex;
 	flex-wrap: wrap;
